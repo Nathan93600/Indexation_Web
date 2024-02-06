@@ -75,7 +75,7 @@ def main(start_url):
     crawled_urls = set()
     to_crawl = set([start_url])
 
-    crawl(start_url, crawled_urls, to_crawl, max_depth=20)  # Profondeur de 2 niveaux
+    crawl(start_url, crawled_urls, to_crawl, max_depth=20)  # Profondeur de 20 niveaux
 
     with open('crawled_webpages.txt', 'w') as file:
         for url in crawled_urls:
