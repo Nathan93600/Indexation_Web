@@ -2,10 +2,12 @@ import json
 from data_processing import clean_text, tokenize, stem
 from collections import defaultdict
 from bs4 import BeautifulSoup
-
 from collections import defaultdict
 import json
-from data_processing import clean_text, tokenize  # Assurez-vous que ces fonctions sont adaptées à vos besoins
+from collections import defaultdict
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+
 
 def build_non_positional_index(urls_file):
     index = defaultdict(set)
@@ -21,11 +23,7 @@ def build_non_positional_index(urls_file):
         json.dump({token: list(doc_ids) for token, doc_ids in index.items()}, file, ensure_ascii=False)
 
 
-from collections import defaultdict
-import json
-from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
-from data_processing import clean_text  # Assurez-vous d'avoir cette fonction ou de l'implémenter
+
 
 def build_stemmed_index(urls_file):
     stemmer = PorterStemmer()
@@ -62,3 +60,5 @@ def build_positional_index(urls_file):
     # Sauvegardez l'index construit
     with open('title.pos_index.json', 'w', encoding='utf-8') as file:
         json.dump(index, file, ensure_ascii=False)
+
+
