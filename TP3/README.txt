@@ -42,28 +42,46 @@ cd chemin/vers/search_engine
 python main.py
 ```
 
-Vous serez invité à entrer une requête. Après l'entrée de la requête, le système traitera la requête, filtrera et classera les documents, puis écrira les résultats dans `results.json`.
+Vous serez invité à entrer une requête et à choisir le mode de filtrage (AND/OR). Après l'entrée de la requête, le système traitera la requête, filtrera et classera les documents, puis écrira les résultats dans `results.json`.
 
-## Explication du Code
+## Exemple d'Exécution
 
-### main.py
+```
+Entrez votre requête : technology document
+Choisissez le mode de filtrage (AND/OR): AND
+```
 
-Ce script est le point d'entrée du programme. Il orchestre le processus de recherche en appelant les fonctions définies dans les autres scripts.
+### Résultats Attendus
 
-### query_processor.py
+Les résultats de votre requête seront écrits dans `results.json`, contenant les documents pertinents classés selon votre requête.
 
-Contient la fonction `process_query` qui pré-traite la requête de l'utilisateur (tokenisation, mise en minuscules, suppression des stopwords).
+## Format des Fichiers de Données
 
-### document_filter.py
+### documents.json
 
-Implémente la fonction `filter_documents` qui filtre les documents en fonction de la présence des tokens de la requête. Supporte les modes de filtrage ET et OU.
+```json
+[
+  {
+    "id": 1,
+    "content": "This is a sample document about technology.",
+    "title": "Technology News"
+  },
+  {
+    "id": 2,
+    "content": "Another document related to health.",
+    "title": "Health Update"
+  }
+]
+```
 
-### ranking.py
+### index.json
 
-Contient la fonction `rank_documents` qui classe les documents filtrés en fonction du nombre de tokens correspondants et éventuellement d'autres critères.
-
-### results_writer.py
-
-Gère l'écriture des résultats filtrés et classés dans un fichier `results.json`, incluant le titre, l'URL, le nombre total de documents dans l'index, et le nombre de documents correspondant à la requête.
-
+```json
+{
+  "technology": {"1": {"count": 1}},
+  "sample": {"1": {"count": 1}},
+  "document": {"1": {"count": 1}, "2": {"count": 1}},
+  "health": {"2": {"count": 1}}
+}
+```
 

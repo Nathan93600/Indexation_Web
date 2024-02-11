@@ -15,7 +15,7 @@ def calculate_avgdl(documents):
 def main():
     # Chargement des données
     documents = load_json('TP3/documents.json')
-    index = load_json('TP2/index.json')
+    index = load_json('TP2/technology documentindex.json')
     
     # Calcul de N et avgdl
     N = len(documents)
