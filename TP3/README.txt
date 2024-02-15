@@ -1,7 +1,4 @@
 
-# Projet de Moteur de Recherche
-
-Ce projet implémente un système de recherche simple qui lit une requête utilisateur, la traite, filtre les documents basés sur cette requête, les classe, et enfin retourne les résultats sous forme de fichier JSON.
 
 ## Dépendances
 
